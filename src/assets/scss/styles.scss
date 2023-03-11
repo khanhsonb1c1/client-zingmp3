@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap");
+
+$sidebar-color: #231b2e;
+$hover-color: #423A4A;
+$primary-color: #170f23;
+$secondary-color: #33224e;
+$border-color: #C273ED;
+$text-color: #8b8892;
+$text-title-color: #FFFFFF;
+$text-sidebar-color: #dadada;
+$background-yellow: #e2d007;
+$background-gradient: linear-gradient(117deg,#5a4be7,#c86dd7 102%);
+$font-primary: "Inter", sans-serif;
+
+* {
+  font: 100% $font-primary;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  padding-left: 250px;
+  min-height: 100vh;
+  width: 100%;
+  background-color: $primary-color;
+}
+// ====== aside =====
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: $sidebar-color;
+
+  .aside__logo {
+    height: 50px;
+    img {
+      padding: 10px 100px 20px 30px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .aside__body {
+
+    ul {
+      list-style: none;
+      padding-top: 10px;
+      padding-bottom: 15px;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 12px 30px;
+        color: $text-sidebar-color;
+        border-left: 5px solid $sidebar-color ;
+      }
+      li:hover{
+        border-left: 5px solid $border-color;
+        background-color: $hover-color;
+      }
+      a{
+        color: $text-sidebar-color;
+        text-decoration: unset;
+        font-weight: 400;
+        font-size: .8em;
+      }
+
+      i {
+        margin-right: 15px;
+        // font-size: 1.2rem;
+      }
+    }
+
+    .aside__line{
+        margin: 0px 30px;
+        border-bottom: 1px solid $hover-color;
+    }
+
+    .banner__update{
+        display: flex;
+        text-align: center;
+        // height: 100px;
+        margin: 10px 20px;
+        background-image: $background-gradient;
+        padding: 15px;
+        border-radius: 8px;
+        color: $text-title-color;
+        font-size: 0.75em;
+        line-height: 1.8em;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span{
+            margin: 0 auto;
+            margin-top: 15px;
+            background-color: $background-yellow;
+            padding: 7px;
+            border-radius: 20px;
+            color: black;
+            text-transform: uppercase;
+            font-weight: 600;
+            width: 90%;
+        }
+
+    }
+
+
+  }
+}

@@ -1,16 +1,16 @@
 import CustomerPage from "../views/Customer/Index";
 import HomePage from "../views/Home";
-import ProductPage from "../views/Product/Index";
 
 const publicRoutes = [
   {
     path: "/",
     component: HomePage,
+    // default layout is Container
   },
 
   {
-    path: "/products",
-    component: ProductPage,
+    path: "/test",
+    component: HomePage,
   },
 ];
 

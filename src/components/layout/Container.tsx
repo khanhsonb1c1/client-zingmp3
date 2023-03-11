@@ -1,15 +1,14 @@
-import Header from "./Header";
-import SideBar from "./SideBar";
+import TheSidebar from "./sidebar/Index";
 
 Container.propTypes = {};
 
-function Container(children: any) {
+function Container({ children }: any) {
   return (
     <div>
-      <Header />
+      <TheSidebar />
       <div className="container">
-        <SideBar />
-        <div className="content">{children}</div>
+        {/* <TheHeader />
+        <div className="content">{children}</div> */}
       </div>
     </div>
   );
