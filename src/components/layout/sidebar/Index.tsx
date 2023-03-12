@@ -44,7 +44,7 @@ function TheSidebar() {
             </li>
             <li>
               <i className="lni lni-star-half"></i>
-              <a href="#"> 100</a>
+              <a href="#">TOP 100</a>
             </li>
             <li>
               <i className="lni lni-mic"></i>

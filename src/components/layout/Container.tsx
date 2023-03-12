@@ -1,3 +1,4 @@
+import TheHeader from "./header/Index";
 import TheSidebar from "./sidebar/Index";
 
 Container.propTypes = {};
@@ -7,8 +8,8 @@ function Container({ children }: any) {
     <div>
       <TheSidebar />
       <div className="container">
-        {/* <TheHeader />
-        <div className="content">{children}</div> */}
+        <TheHeader />
+        {/* <div className="content">{children}</div> */}
       </div>
     </div>
   );
