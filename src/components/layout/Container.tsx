@@ -9,7 +9,7 @@ function Container({ children }: any) {
       <TheSidebar />
       <div className="container">
         <TheHeader />
-        {/* <div className="content">{children}</div> */}
+        <div className="content">{children}</div>
       </div>
     </div>
   );

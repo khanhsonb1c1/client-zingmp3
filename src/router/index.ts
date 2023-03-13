@@ -5,11 +5,10 @@ const publicRoutes = [
   {
     path: "/",
     component: HomePage,
-    // default layout is Container
   },
 
   {
-    path: "/test",
+    path: "/album",
     component: HomePage,
   },
 ];
