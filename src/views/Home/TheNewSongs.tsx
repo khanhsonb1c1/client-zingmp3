@@ -7,7 +7,7 @@ TheNewSongs.propTypes = {};
 function TheNewSongs() {
   return (
     <div className="home-page__row">
-      <ContainerListSong title={"Mới Phát Hành"}>
+      <ContainerListSong title={"Mới Phát Hành"} tabs={true}>
         {dataListNewSong.map((item) => {
           return <SongCard item={item} />;
         })}

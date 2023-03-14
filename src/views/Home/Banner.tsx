@@ -9,7 +9,7 @@ Banner.propTypes = {};
 
 function Banner() {
   const settings = {
-     dots: false,
+    dots: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

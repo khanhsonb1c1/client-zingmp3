@@ -261,6 +261,33 @@ $font-primary: "Inter", sans-serif;
     }
   }
 }
+.home-page__slider-idol {
+  .slider__items-idol {
+    .slider__item-idol {
+      width: 14.2857142857%;
+      padding: 15px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.slider__items-category {
+  display: flex;
+  padding-left: 0px 5px;
+
+  .slider__item-category {
+    width: 33.33333333%;
+    padding: 10px;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}
 
 .home-page__row {
   margin-top: 50px;
@@ -299,6 +326,13 @@ $font-primary: "Inter", sans-serif;
     font-weight: 600;
     line-height: 1.6em;
   }
+
+  &-desciption {
+    margin-top: 5px;
+    color: $text-color;
+    font-size: 0.8em;
+    line-height: 1.6;
+  }
 }
 
 // card default
@@ -327,18 +361,67 @@ $font-primary: "Inter", sans-serif;
     padding-left: 15px;
   }
 
+  &__tabs {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 15px;
+    justify-content: space-between;
+
+    &-content {
+      display: flex;
+    }
+
+    &-right {
+      color: $text-color;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      i {
+        margin-left: 10px;
+      }
+    }
+
+    &-right:hover {
+      color: $border-color;
+      cursor: pointer;
+    }
+
+    &__tab {
+      color: $text-title-color;
+      font-size: 0.8em;
+      font-weight: 300;
+      margin-right: 20px;
+      padding: 5px 25px;
+      border: 1px solid $hover-color;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    &__tab:hover {
+      background-color: $border-color;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .active {
+      background-color: $border-color;
+    }
+  }
+
   &__items {
     margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
     padding-left: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 
   &__item {
-    width: 33.33333333%;
+    // width: 33.33333333%;
     padding: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -395,5 +478,55 @@ $font-primary: "Inter", sans-serif;
   }
   &__item:hover .song-list__item-btn {
     color: $text-title-color;
+  }
+}
+
+.footer {
+  padding-left: 5px;
+  padding-top: 50px;
+   padding-bottom: 20px;
+
+  &__title {
+    color: $text-color;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+      width: 25%;
+      padding: 10px;
+
+      &-wrap {
+        border-radius: 8px;
+        background-color: $text-title-color;
+        padding: 15px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__bottom{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    &-left , &-right, &-mid{
+      color: $text-color;
+      font-size: .6em;
+    }
   }
 }
