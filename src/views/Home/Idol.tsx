@@ -16,6 +16,32 @@ function Idol() {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <div className="home-page__slider-idol">

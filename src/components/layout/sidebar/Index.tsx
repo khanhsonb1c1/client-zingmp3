@@ -5,7 +5,8 @@ function TheSidebar() {
     <div>
       <aside className="aside">
         <div className="aside__logo">
-          <img src={logo} />
+          <img src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.9.11/static/media/icon_zing_mp3_60.f6b51045.svg" alt="" className="logo-mini" />
+          <img className="logo" src={logo} />
         </div>
         <div className="aside__body">
           <ul>
@@ -59,7 +60,7 @@ function TheSidebar() {
           </div>
         </div>
       </aside>
-    </div>
+    </div>  
   );
 }
 

@@ -1,4 +1,6 @@
 import type { PropsWithChildren } from "react";
+import { useDispatch } from "react-redux";
+import { updatePlayMusic } from "../../../store/playMusic";
 
 SongCard.propTypes = {};
 
@@ -6,12 +8,19 @@ type CardType = PropsWithChildren<{
   title: string;
   img: string;
   singer: string;
+  play: string;
   updated_at: string;
 }>;
 
 function SongCard({ item }: { item: CardType }) {
+  const dispath = useDispatch();
+
+  const handleClick = () => {
+    dispath(updatePlayMusic(item.play));
+  };
+
   return (
-    <div className="song-list__item">
+    <div className="song-list__item" onClick={handleClick}>
       <img src={item.img} alt="" />
       <div className="song-list__item__content">
         <div className="song-list__item__content-name line-1">{item.title}</div>

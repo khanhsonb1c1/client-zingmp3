@@ -1,0 +1,24 @@
+//@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap");
+
+$sidebar-color: #231b2e;
+$hover-color: #423a4a;
+$primary-color: #170f23;
+$secondary-color: #33224e;
+$border-color: #c273ed;
+$text-color: #8b8892;
+$text-title-color: #ffffff;
+$text-sidebar-color: #dadada;
+$background-yellow: #e2d007;
+$background-gradient: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
+$font-primary: "Inter", sans-serif;
+
+$mobile-width: 480px; 
+$tablet-width: 768px; 
+$desktop-width: 1024px;  
+
+$laptop: 'only screen and (min-width: 768px)';
+
+$tablet: 'only screen and (min-width: 481px) and (max-width: 767px)';
+
+$phone: 'only screen and (max-width: 480px)';

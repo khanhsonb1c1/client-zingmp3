@@ -9,7 +9,7 @@ function TheNewSongs() {
     <div className="home-page__row">
       <ContainerListSong title={"Mới Phát Hành"} tabs={true}>
         {dataListNewSong.map((item) => {
-          return <SongCard item={item} />;
+          return <SongCard item={item}/>;
         })}
       </ContainerListSong>
     </div>

@@ -1,18 +1,3 @@
-//@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap");
-
-$sidebar-color: #231b2e;
-$hover-color: #423a4a;
-$primary-color: #170f23;
-$secondary-color: #33224e;
-$border-color: #c273ed;
-$text-color: #8b8892;
-$text-title-color: #ffffff;
-$text-sidebar-color: #dadada;
-$background-yellow: #e2d007;
-$background-gradient: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
-$font-primary: "Inter", sans-serif;
-
 * {
   font: 100% $font-primary;
   box-sizing: border-box;
@@ -27,6 +12,12 @@ $font-primary: "Inter", sans-serif;
   padding-left: 250px;
   min-height: 100vh;
   width: 100%;
+  @media #{$phone} {
+    padding-left: 60px;
+  }
+  @media #{$tablet} {
+    padding-left: 60px;
+  }
 }
 
 .line-2 {
@@ -41,6 +32,10 @@ $font-primary: "Inter", sans-serif;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
+.text-primary {
+  color: $text-title-color;
+}
 // ====== aside =====
 
 .aside {
@@ -51,12 +46,40 @@ $font-primary: "Inter", sans-serif;
   height: 100vh;
   background-color: $sidebar-color;
 
+  @media #{$phone} {
+    width: 60px;
+  }
+  @media #{$tablet} {
+    width: 60px;
+  }
+
   .aside__logo {
     height: 50px;
-    img {
+
+    @media #{$phone} {
+      margin-bottom: 40px;
+    }
+    @media #{$tablet} {
+      margin-bottom: 40px;
+    }
+
+    .logo {
       padding: 10px 100px 20px 30px;
       width: 100%;
       object-fit: cover;
+      @media #{$tablet} {
+        display: none;
+      }
+    }
+
+    .logo-mini {
+      padding: 10px 0px 0px 10px;
+      width: 80%;
+      object-fit: cover;
+      background-color: transparent;
+      @media #{$laptop} {
+        display: none;
+      }
     }
   }
 
@@ -72,6 +95,13 @@ $font-primary: "Inter", sans-serif;
         padding: 12px 30px;
         color: $text-sidebar-color;
         border-left: 5px solid $sidebar-color;
+
+        @media #{$phone} {
+          padding: 12px 15px;
+        }
+        @media #{$tablet} {
+          padding: 12px 15px;
+        }
       }
       li:hover {
         border-left: 5px solid $border-color;
@@ -82,6 +112,12 @@ $font-primary: "Inter", sans-serif;
         text-decoration: unset;
         font-weight: 400;
         font-size: 0.8em;
+        @media #{$phone} {
+          display: none;
+        }
+        @media #{$tablet} {
+          display: none;
+        }
       }
 
       i {
@@ -108,6 +144,13 @@ $font-primary: "Inter", sans-serif;
       line-height: 1.8em;
       flex-direction: column;
       justify-content: space-between;
+
+      @media #{$phone} {
+        display: none;
+      }
+      @media #{$tablet} {
+        display: none;
+      }
 
       span {
         margin: 0 auto;
@@ -141,11 +184,26 @@ $font-primary: "Inter", sans-serif;
   z-index: 100;
   min-width: 660px;
 
+  @media #{$phone} {
+    left: 60px;
+    padding: 10px 10px;
+  }
+  @media #{$tablet} {
+    left: 60px;
+    padding: 20px 20px;
+  }
+
   &__left {
     i {
       color: $text-color;
       font-size: 1.3em;
       margin-right: 20px;
+    }
+
+    @media #{$phone} {
+      display: none;
+    }
+    @media #{$tablet} {
     }
   }
 
@@ -155,6 +213,15 @@ $font-primary: "Inter", sans-serif;
     border-radius: 20px;
     background-color: $hover-color;
     width: 400px;
+
+    @media #{$phone} {
+      width: 200px;
+      overflow: hidden;
+    }
+    @media #{$tablet} {
+      left: 60px;
+      padding: 0 20px;
+    }
 
     i {
       position: absolute;
@@ -181,6 +248,13 @@ $font-primary: "Inter", sans-serif;
         font-weight: 300;
         line-height: 34px;
         color: $text-title-color;
+
+        @media #{$phone} {
+          font-size: 12px;
+        }
+        @media #{$tablet} {
+          font-size: 12px;
+        }
       }
 
       input:focus {
@@ -206,6 +280,12 @@ $font-primary: "Inter", sans-serif;
       text-align: center;
       align-content: center;
       justify-content: center;
+      @media #{$phone} {
+        display: none;
+      }
+      @media #{$tablet} {
+        display: none;
+      }
       i,
       p {
         display: block;
@@ -235,14 +315,38 @@ $font-primary: "Inter", sans-serif;
       justify-content: center;
       align-items: center;
       color: $text-title-color;
+      @media #{$phone} {
+        margin-left: 15px;
+      }
+      @media #{$tablet} {
+        margin-left: 15px;
+      }
+      
+    }
+
+    &-premium {
+      @media #{$phone} {
+        display: none;
+      }
+      @media #{$tablet} {
+        display: none;
+      }
     }
   }
+
+  
 }
 
 // =============== content =================
 
 .content {
   padding: 70px 60px 0px 40px;
+  @media #{$phone} {
+    padding: 70px 5px 0px 5px;
+  }
+  @media #{$tablet} {
+    padding: 70px 10px 0px 10px;
+  }
 }
 
 .home-page__slider {
@@ -267,6 +371,13 @@ $font-primary: "Inter", sans-serif;
       width: 14.2857142857%;
       padding: 15px;
 
+      // @media #{$phone} {
+      //   width: 33.3333333%;
+      // }
+      // @media #{$tablet} {
+      //   width: 25%;
+      // }
+
       img {
         width: 100%;
       }
@@ -277,10 +388,18 @@ $font-primary: "Inter", sans-serif;
 .slider__items-category {
   display: flex;
   padding-left: 0px 5px;
+  flex-wrap: wrap;
 
   .slider__item-category {
     width: 33.33333333%;
     padding: 10px;
+
+    @media #{$phone} {
+      width: 100%;
+    }
+    @media #{$tablet} {
+      width: 50%;
+    }
 
     img {
       width: 100%;
@@ -340,6 +459,13 @@ $font-primary: "Inter", sans-serif;
 .album-list__item {
   width: 20%;
 
+  @media #{$phone} {
+    width: 50%;
+  }
+  @media #{$tablet} {
+    width: 33.33333333%;
+  }
+
   &-singer {
     color: $text-color;
     margin-top: 5px;
@@ -349,6 +475,13 @@ $font-primary: "Inter", sans-serif;
 // card small
 .album-list__item-small {
   width: 16.6666666667%;
+
+  @media #{$phone} {
+    width: 50%;
+  }
+  @media #{$tablet} {
+    width: 33.33333333%;
+  }
 }
 
 // ============ song list ===========
@@ -363,6 +496,7 @@ $font-primary: "Inter", sans-serif;
 
   &__tabs {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
     padding-left: 15px;
     justify-content: space-between;
@@ -380,6 +514,13 @@ $font-primary: "Inter", sans-serif;
       i {
         margin-left: 10px;
       }
+
+      @media #{$phone} {
+        margin-top: 20px;
+      }
+      @media #{$tablet} {
+        margin-top: 5px;
+      }
     }
 
     &-right:hover {
@@ -396,6 +537,13 @@ $font-primary: "Inter", sans-serif;
       border: 1px solid $hover-color;
       border-radius: 20px;
       text-transform: uppercase;
+
+      @media #{$phone} {
+        font-size: 0.7em;
+        padding: 5px 10px;
+      }
+      @media #{$tablet} {
+      }
     }
 
     &__tab:hover {
@@ -416,6 +564,13 @@ $font-primary: "Inter", sans-serif;
     grid-template-columns: auto auto auto;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+
+    @media #{$phone} {
+      grid-template-columns: auto auto;
+    }
+    @media #{$tablet} {
+      grid-template-columns: auto auto;
+    }
   }
 
   &__item {
@@ -423,8 +578,12 @@ $font-primary: "Inter", sans-serif;
     padding: 10px;
     overflow: hidden;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     position: relative;
+
+    @media #{$phone} {
+      flex-wrap: wrap;
+    }
 
     img {
       width: 60px;
@@ -434,6 +593,9 @@ $font-primary: "Inter", sans-serif;
 
     &__content {
       padding-left: 10px;
+      @media #{$phone} {
+        padding: 0;
+      }
 
       &-name {
         color: $text-title-color;
@@ -484,7 +646,7 @@ $font-primary: "Inter", sans-serif;
 .footer {
   padding-left: 5px;
   padding-top: 50px;
-   padding-bottom: 20px;
+  padding-bottom: 20px;
 
   &__title {
     color: $text-color;
@@ -504,6 +666,13 @@ $font-primary: "Inter", sans-serif;
       width: 25%;
       padding: 10px;
 
+      @media #{$phone} {
+        width: 50%;
+      }
+      @media #{$tablet} {
+        width: 33.33333333%;
+      }
+
       &-wrap {
         border-radius: 8px;
         background-color: $text-title-color;
@@ -519,14 +688,30 @@ $font-primary: "Inter", sans-serif;
     }
   }
 
-  &__bottom{
+  &__bottom {
     padding-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
-    &-left , &-right, &-mid{
+    &-left,
+    &-right,
+    &-mid {
       color: $text-color;
-      font-size: .6em;
+      font-size: 0.6em;
     }
   }
+}
+
+// ======== play music ===========
+
+.play-music{
+  z-index: 1;
+  background-color: red;
+  min-height: 50px;
+  width: 100%;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }

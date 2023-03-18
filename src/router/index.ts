@@ -1,5 +1,6 @@
 import CustomerPage from "../views/Customer/Index";
 import HomePage from "../views/Home";
+import test from "../views/Home/test";
 
 const publicRoutes = [
   {
@@ -9,7 +10,7 @@ const publicRoutes = [
 
   {
     path: "/album",
-    component: HomePage,
+    component: test,
   },
 ];
 

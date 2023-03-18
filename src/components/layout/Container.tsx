@@ -1,3 +1,4 @@
+import PlayMusic from "../PlayMusic";
 import TheHeader from "./header/Index";
 import TheSidebar from "./sidebar/Index";
 
@@ -11,6 +12,7 @@ function Container({ children }: any) {
         <TheHeader />
         <div className="content">{children}</div>
       </div>
+      <PlayMusic />
     </div>
   );
 }
