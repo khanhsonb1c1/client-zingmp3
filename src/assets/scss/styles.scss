@@ -711,12 +711,27 @@
   bottom: 0;
   left: 0;
   padding: 5px;
-  display: flex;
-  justify-content: center;
 
   .play {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+
+    .album-info {
+      @media #{$phone} {
+        display: none;
+      }
+      @media #{$tablet} {
+        display: none;
+      }
+    }
+
+    .play-center {
+      display: flex;
+      flex-direction: column;
+      @media #{$phone} {
+        width: 100%;
+      }
+    }
 
     .button-group {
       display: flex;
@@ -734,9 +749,6 @@
         height: 60px;
         position: relative;
         // padding: 20px;
-        
-
-
 
         .lni {
           position: absolute;
@@ -748,22 +760,53 @@
         }
       }
 
-      .btn-func:hover{
+      .btn-func:hover {
         background-color: $border-color;
       }
     }
 
-    .timeline-group{
+    .timeline-group {
       margin-bottom: 10px;
-      .css-wpz5lw-Slider{
+      @media #{$phone} {
+        display: flex;
+      }
+      @media #{$tablet} {
+        //
+      }
+      .css-wpz5lw-Slider {
         width: 400px;
         margin: 0px 20px 3px 20px;
+
+        @media #{$phone} {
+          width: 100%;
+        }
+        @media #{$tablet} {
+          //
+        }
       }
-      .css-100juk0{
+      .css-100juk0 {
         background-color: white;
         border-radius: 50%;
-
       }
+    }
+  }
+
+  .play-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media #{$phone} {
+      display: none;
+    }
+    @media #{$tablet} {
+      display: none;
+    }
+    font-size: 1.2rem;
+    .lni {
+      margin: 0px 10px;
+    }
+    .lni:hover {
+      color: $border-color;
     }
   }
 }
