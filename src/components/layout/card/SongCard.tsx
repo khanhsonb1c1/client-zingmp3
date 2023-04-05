@@ -17,7 +17,7 @@ function SongCard({ item }: { item: CardType }) {
   const dispath = useDispatch();
 
   const handleClick = () => {
-    dispath(updatePlayMusic(item.play));
+    dispath(updatePlayMusic(item));
   };
 
   return (

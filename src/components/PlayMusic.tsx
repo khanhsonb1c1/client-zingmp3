@@ -2,6 +2,8 @@ import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import TimeSlider from "react-input-slider";
 import { useSelector } from "react-redux";
 import MusicPlay from "../types/MusicPlay";
+import Album from "../types/Album";
+import SongCard from "./layout/card/SongCard";
 
 PlayMusic.propTypes = {};
 
@@ -9,6 +11,7 @@ type typePlayMusic = PropsWithChildren<{
   played: {
     // match with row 6 in index.ts in store folder
     play_list: Array<MusicPlay>;
+    album_info: Album;
   };
 }>;
 
@@ -33,6 +36,14 @@ function PlayMusic() {
   const play_list = useSelector(
     (state: typePlayMusic) => state.played.play_list
   );
+
+  const album_info = useSelector(
+    (state: typePlayMusic) => state.played.album_info
+  );
+
+  const handleClick = () => {
+    console.log(album_info, "// album-info");
+  };
 
   // useEffect
 
@@ -113,74 +124,98 @@ function PlayMusic() {
     play_list.length && (
       <div className="play-music">
         <div className="play">
-          <div className="button-group">
-            <div className="btn-func">
-              <i className="lni lni-spinner-arrow"></i>
+          <div className="album-info">
+            <SongCard item={album_info} />
+          </div>
+          <div className="play-center">
+            <div className="button-group">
+              <div className="btn-func" onClick={handleClick}>
+                <i className="lni lni-spinner-arrow"></i>
+              </div>
+              <div
+                className="btn-func"
+                onClick={() =>
+                  setAudioIndex((audioIndex - 1) % play_list.length)
+                }
+              >
+                <i className="lni lni-backward"></i>
+              </div>
+              <div className="btn-func btn-play" onClick={handlePausePlayClick}>
+                {isPlay ? (
+                  <i className="lni lni-pause"></i>
+                ) : (
+                  <i className="lni lni-play"></i>
+                )}
+              </div>
+              <div
+                className="btn-func"
+                onClick={() =>
+                  setAudioIndex((audioIndex + 1) % play_list.length)
+                }
+              >
+                <i className="lni lni-forward"></i>
+              </div>
+              <div className="btn-func">
+                <i className="lni lni-shuffle"></i>
+              </div>
             </div>
-            <div
-              className="btn-func"
-              onClick={() => setAudioIndex((audioIndex - 1) % play_list.length)}
-            >
-              <i className="lni lni-backward"></i>
-            </div>
-            <div className="btn-func btn-play" onClick={handlePausePlayClick}>
-              {isPlay ? (
-                <i className="lni lni-pause"></i>
-              ) : (
-                <i className="lni lni-play"></i>
+            <div className="timeline-group">
+              <span>
+                {currTime.min}:{currTime.sec}
+              </span>
+              <TimeSlider
+                axis="x"
+                xmax={duration}
+                x={currentTime}
+                onChange={handleTimeSliderChange}
+                styles={{
+                  track: {
+                    backgroundColor: "#e3e3e3",
+                    height: "2px",
+                  },
+                  active: {
+                    backgroundColor: "#333",
+                    height: "2px",
+                  },
+                  thumb: {
+                    marginTop: "-3px",
+                    width: "8px",
+                    height: "8px",
+                    backgroundColor: "#333",
+                    borderRadius: 0,
+                  },
+                }}
+              />
+              <span>
+                {total_time.min}:{total_time.sec}
+              </span>
+              {play_list.length && (
+                <audio
+                  ref={audioRef}
+                  src={play_list[audioIndex].play_url}
+                  onLoadedData={handleLoadedData}
+                  onTimeUpdate={() =>
+                    setCurrentTime(audioRef.current.currentTime)
+                  }
+                  onEnded={() => setPlay(false)}
+                />
               )}
             </div>
-            <div
-              className="btn-func"
-              onClick={() => setAudioIndex((audioIndex + 1) % play_list.length)}
-            >
-              <i className="lni lni-forward"></i>
-            </div>
-            <div className="btn-func">
-              <i className="lni lni-shuffle"></i>
-            </div>
           </div>
-          <div className="timeline-group">
-            <span>
-              {currTime.min}:{currTime.sec}
-            </span>
-            <TimeSlider
-              axis="x"
-              xmax={duration}
-              x={currentTime}
-              onChange={handleTimeSliderChange}
-              styles={{
-                track: {
-                  backgroundColor: "#e3e3e3",
-                  height: "2px",
-                },
-                active: {
-                  backgroundColor: "#333",
-                  height: "2px",
-                },
-                thumb: {
-                  marginTop: "-3px",
-                  width: "8px",
-                  height: "8px",
-                  backgroundColor: "#333",
-                  borderRadius: 0,
-                },
-              }}
-            />
-            <span>
-              {total_time.min}:{total_time.sec}
-            </span>
-            {play_list.length && (
-              <audio
-                ref={audioRef}
-                src={play_list[audioIndex].play_url}
-                onLoadedData={handleLoadedData}
-                onTimeUpdate={() =>
-                  setCurrentTime(audioRef.current.currentTime)
-                }
-                onEnded={() => setPlay(false)}
-              />
-            )}
+
+          <div className="play-left">
+            <div className="btn-fuc">
+              <i className="lni lni-volume-high"></i>
+            </div>
+            <div className="btn-fuc">
+              <i className="lni lni-thumbs-up"></i>
+            </div>
+            <div className="btn-fuc">
+              <i className="lni lni-mic"></i>
+            </div>
+            <div className="btn-heart">
+              <i className="lni lni-heart"></i>
+            </div>
           </div>
         </div>
       </div>
