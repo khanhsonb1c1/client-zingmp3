@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { useDispatch } from "react-redux";
 import { updatePlayMusic } from "../../../store/playMusic";
+import MusicPlay from "../../../types/MusicPlay";
 
 SongCard.propTypes = {};
 
@@ -8,7 +9,7 @@ type CardType = PropsWithChildren<{
   title: string;
   img: string;
   singer: string;
-  play: string;
+  play: Array<MusicPlay>;
   updated_at: string;
 }>;
 

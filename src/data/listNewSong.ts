@@ -14,7 +14,20 @@ export const dataListNewSong = [
         singer: 'Tùng Maru, Vũ Phụng Tiên',
         img: img1,
         updated_at: 'Hôm qua',
-        play: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+        play: [
+            {
+            name: 'test audio 1',
+            play_url:  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        },
+            {
+            name: 'test audio 2',
+            play_url:  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+        },
+            {
+            name: 'test audio 3',
+            play_url:  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+        },
+    ]
     },
     {
         id: 2,
@@ -22,7 +35,10 @@ export const dataListNewSong = [
         singer: 'Lil Z',
         img: img2,
         updated_at: '3 giờ trước',
-        play: 'https://vnno-pt-2-tf-mp3-s1-zmp3.zmdcdn.me/4751462be36b0a35537a/9213035826364343715?authen=exp=1678986607~acl=/4751462be36b0a35537a/*~hmac=40fe57ceee5bb266457f6e3c28d4ad73&fs=MTY3ODgxMzgwNzIxM3x3ZWJWNnwxMDE0NjM1MzmUsIC3fDEdUngNTUdUngMjU0LjmUsICx'
+        play: [{
+            name: 'test audio n',
+            play_url:  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        }]
     },
     {
         id: 3,
