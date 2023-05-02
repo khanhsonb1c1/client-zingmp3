@@ -1,17 +1,13 @@
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import TimeSlider from "react-input-slider";
 import { useSelector } from "react-redux";
-import MusicPlay from "../types/MusicPlay";
-import Album from "../types/Album";
-import SongCard from "./layout/card/SongCard";
 
 PlayMusic.propTypes = {};
 
 type typePlayMusic = PropsWithChildren<{
   played: {
-    // match with row 6 in index.ts in store folder
-    play_list: Array<MusicPlay>;
-    album_info: Album;
+    playlist: Array<string>;
+    info: any;
   };
 }>;
 
@@ -22,7 +18,6 @@ function PlayMusic() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlay, setPlay] = useState(false);
-
   const [currTime, setCurrTime] = useState({
     min: "00",
     sec: "00",
@@ -34,16 +29,10 @@ function PlayMusic() {
   });
 
   const play_list = useSelector(
-    (state: typePlayMusic) => state.played.play_list
+    (state: typePlayMusic) => state.played.playlist
   );
 
-  const album_info = useSelector(
-    (state: typePlayMusic) => state.played.album_info
-  );
-
-  const handleClick = () => {
-    console.log(album_info, "// album-info");
-  };
+  const album_info = useSelector((state: typePlayMusic) => state.played.info);
 
   // useEffect
 
@@ -125,11 +114,22 @@ function PlayMusic() {
       <div className="play-music">
         <div className="play">
           <div className="album-info">
-            <SongCard item={album_info} />
+            <div className="song-list__item play-running-album-content">
+              <img className="img_running" src={album_info.image_url} alt="" />
+              <div className="song-list__item__content">
+                <div className="song-list__item__content-name line-1">
+                  {album_info.name}
+                </div>
+                <div className="song-list__item__content-singer line-1">
+                  {album_info.singers}
+                </div>
+              </div>
+            </div>
+            {/* <SongCard item={album_info} /> */}
           </div>
           <div className="play-center">
             <div className="button-group">
-              <div className="btn-func" onClick={handleClick}>
+              <div className="btn-func">
                 <i className="lni lni-spinner-arrow"></i>
               </div>
               <div
@@ -192,7 +192,7 @@ function PlayMusic() {
               {play_list.length && (
                 <audio
                   ref={audioRef}
-                  src={play_list[audioIndex].play_url}
+                  src={play_list[audioIndex]}
                   onLoadedData={handleLoadedData}
                   onTimeUpdate={() =>
                     setCurrentTime(audioRef.current.currentTime)

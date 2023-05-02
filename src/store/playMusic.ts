@@ -1,18 +1,17 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import MusicPlay from "../types/MusicPlay";
+import { createSlice } from "@reduxjs/toolkit";
 import Album from "../types/Album";
+import MusicPlay from "../types/MusicPlay";
 // // import type { RootState } from '../../app/store'
 
 interface PlayMusicState {
-  play_list: Array<MusicPlay>,
-  album_info: Album,
+  playlist: Array<MusicPlay>;
+  info: any;
 }
 
 // Define the initial state using that type
 const initialState: PlayMusicState = {
-  play_list: [] as Array<MusicPlay>,
-  album_info: {} as Album,
-
+  playlist: [] as Array<MusicPlay>,
+  info: {} as any,
 };
 
 export const playMusicSlice = createSlice({
@@ -20,10 +19,14 @@ export const playMusicSlice = createSlice({
   initialState,
   reducers: {
     updatePlayMusic(state, action) {
-      console.log('state: ',state)
-      console.log('action: ',action.payload)
-      state.play_list = action.payload.play
-      state.album_info = action.payload
+      console.log("action: ", action.payload);
+
+      // playlist : array<play_url:string>
+      // info: music or album ( have name and image_url)
+      state.playlist = action.payload.playlist
+      state.info = action.payload.info
+
+      console.log(state.playlist, '/playlist/')
     },
   },
 });

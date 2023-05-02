@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from "react";
 
 type CardType = PropsWithChildren<{
-  title: string,
-  img: string,
-}>
+  title: string;
+  img: string;
+}>;
 
-AlbumCardSmall.propTypes = {};
+// AlbumCardSmall.propTypes = {};
 
 function AlbumCardSmall({ item }: { item: CardType }) {
   return (

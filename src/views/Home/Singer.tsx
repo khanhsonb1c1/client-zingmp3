@@ -9,7 +9,7 @@ function Singer() {
     <div className="home-page__row">
       <ContainerListAlbum title={"Nghệ Sĩ Thịnh Hành"}>
         {dataListSinger.map((item) => {
-          return <AlbumCardDefault item={item} />;
+          return <AlbumCardDefault item={item} key={item.id}/>;
         })}
       </ContainerListAlbum>
     </div>
