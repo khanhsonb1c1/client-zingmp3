@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import playMusicReducer from "./playMusic";
 import musicReducer from "./music";
 import albumReducer from "./album";
+import singerReducer from "./singer";
 
 
 const rootReducer = {
   played: playMusicReducer,
   music: musicReducer,
   album: albumReducer,
+  singer: singerReducer,
 };
 
 const store = configureStore({

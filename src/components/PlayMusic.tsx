@@ -2,8 +2,6 @@ import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import TimeSlider from "react-input-slider";
 import { useSelector } from "react-redux";
 
-PlayMusic.propTypes = {};
-
 type typePlayMusic = PropsWithChildren<{
   played: {
     playlist: Array<string>;
@@ -12,7 +10,6 @@ type typePlayMusic = PropsWithChildren<{
 }>;
 
 function PlayMusic() {
-  // declare
   const audioRef: any = useRef();
   const [audioIndex, setAudioIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -110,7 +107,8 @@ function PlayMusic() {
   };
 
   return (
-    play_list.length && (
+    <div>
+      { play_list.length && (
       <div className="play-music">
         <div className="play">
           <div className="album-info">
@@ -219,7 +217,9 @@ function PlayMusic() {
           </div>
         </div>
       </div>
-    )
+    )}
+    </div>
+   
   );
 }
 

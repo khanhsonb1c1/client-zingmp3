@@ -3,4 +3,8 @@ import { musicAPI } from "../axiosconfig";
 
 const singer = new Resource({ service: musicAPI, path: "/api/singers" });
 
-export { singer };
+function get_top_singers(){
+    return musicAPI.get("/api/singers/top-singers-vn")
+}
+
+export { singer, get_top_singers };

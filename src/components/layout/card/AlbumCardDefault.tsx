@@ -2,24 +2,21 @@ import { useDispatch } from "react-redux";
 import usePlayAlbum from "../../../hooks/usePlayAlbum";
 import _Album from "../../../types/_Album";
 import { updatePlayMusic } from "../../../store/playMusic";
+import { Link } from "react-router-dom";
 
 AlbumCardDefault.propTypes = {};
 
 function AlbumCardDefault({ item }: { item: _Album }) {
-  const { info , playlist } = usePlayAlbum({item});
-  const dispath = useDispatch()
+  const { info, playlist } = usePlayAlbum({ item });
+  const dispath = useDispatch();
 
-
-  const handleClick = () => {
-
-    dispath(updatePlayMusic({info, playlist}));
-
-  }
-
+  const handlePlayAlbum = () => {
+    dispath(updatePlayMusic({ info, playlist }));
+  };
 
   return (
     <div className="album-list__item">
-      <div className="album-list__item-img" onClick={handleClick}>
+      <div className="album-list__item-img" onClick={handlePlayAlbum}>
         <div className="album-list__item-img-bg"></div>
         <img src={item.image_url} alt="" className="ratio" />
         <div className="album__play-icon">
@@ -28,7 +25,9 @@ function AlbumCardDefault({ item }: { item: _Album }) {
       </div>
 
       {item.name && (
-        <div className="album-list__item-name line-2">{item.name}</div>
+        <Link to={`/album/${item.id}`}>
+          <div className="album-list__item-name line-2 cursor-pointer">{item.name}</div>
+        </Link>
       )}
       {item.singers_name && (
         <div className="album-list__item-singer line-2">

@@ -24,14 +24,6 @@ export const musicSlice = createSlice({
 
     fetchDetail(state, action) {
       state.loading = true;
-      // new Promise((resolve, reject) => {
-      //   music.get(action.payload).then(({ data }) => {
-      //     console.log(data, "/data");
-      //     state.detail = data;
-      //     state.loading = false;
-      //     resolve(state.detail);
-      //   });
-      // });
     },
   },
 });

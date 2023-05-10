@@ -1,0 +1,127 @@
+.detail-page{
+    color: $text-color;
+    font-size: $font-size;
+    display: flex;
+    margin-top: 2rem;
+    min-height: 100vh;
+
+    &__infomation{
+        width: 33.33333%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        &__img{
+            width: calc(100%);
+            
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+            }
+
+            
+        }
+
+        &__name{
+            margin-top: 2rem;
+            color: $text-title-color;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 1.2em;
+            margin-bottom: 0.6em;
+        }
+
+        &__text{
+            line-height: 1.6;
+            font-weight: 300;
+            font-size: 0.9em;
+        }
+
+        &__button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: $border-color;
+            color: $text-title-color;
+            border-radius: 1.5em;
+            font-weight: 300;
+
+            i{
+                margin-right: 1em;
+            }
+        }
+
+        &__btn-options .lni{ 
+            padding: 0.5em;
+            border-radius: 50%;
+            background-color: $hover-color;
+            margin: 1em 0.5em;
+        }
+    }
+
+    &__songs{
+        width: 66.66666%;
+        margin: 1rem;
+        &-description{
+            font-weight: 500;
+            margin-bottom: 2rem;
+
+            span{
+                display: inline-block;
+
+            }
+            p{
+                margin-left: 0.5em;
+                color: $text-title-color;
+                display: inline;
+                
+            }
+        }
+
+        &-table {
+            &-head {
+                display: flex;
+                padding-bottom: 1em;
+                border-bottom: 1px solid $hover-color;
+                text-transform: uppercase;
+                font-size: 0.9em;
+
+                // .table-col {
+                //     width: 33.33333%;
+                // }
+            }
+        }
+    }
+
+}
+
+.song__row{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid $hover-color;
+    padding: 1em 0 0.5em 0;
+    align-items: center;
+    &-left {
+        display: flex;
+        align-items: center;
+        i {
+            margin-right: 1em;
+        }
+        img{
+            width: 4em;
+            border-radius: 8px;
+            margin-right: 1em;
+        }
+
+        .song-content {
+            display: flex;
+            align-items: center;
+
+            .song-info__name{ 
+                margin-bottom: .5em;
+            }
+        }
+    }
+}
+

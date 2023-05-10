@@ -3,4 +3,5 @@ export default interface Singer {
   _id: string;
   name: string;
   image_url: string;
+  ranker: number;
 }

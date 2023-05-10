@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Album from "../types/Album";
 import MusicPlay from "../types/MusicPlay";
 // // import type { RootState } from '../../app/store'
 

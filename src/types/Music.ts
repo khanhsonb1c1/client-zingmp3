@@ -7,7 +7,8 @@ export default interface Music{
     play_url: string;
     image_url: string;
     ranker: number | string;
-    singer: Array<Singer>;
+    singers: Array<Singer>;
     singers_name: string;
     updated_at: number;
+    
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../../assets/images/ZingMP3logo.png";
 
 function TheSidebar() {
@@ -5,14 +6,16 @@ function TheSidebar() {
     <div>
       <aside className="aside">
         <div className="aside__logo">
+          <Link to={"/"}>
           <img src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.9.11/static/media/icon_zing_mp3_60.f6b51045.svg" alt="" className="logo-mini" />
           <img className="logo" src={logo} />
+          </Link>
         </div>
         <div className="aside__body">
           <ul>
             <li>
               <i className="lni lni-user"></i>
-              <a href="#">Cá Nhân</a>
+              <Link to={"/album"}>Cá Nhân</Link>
             </li>
             <li>
               <i className="lni lni-play"></i>

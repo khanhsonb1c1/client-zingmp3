@@ -10,4 +10,6 @@ export default interface _Album{
     ranker: number;
     singers_name: string;
     updated_at: number;
+    description: string;
+    likes: number;
 }
