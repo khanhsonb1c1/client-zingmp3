@@ -1,5 +1,6 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import Music from "../../../types/Music";
+import {useTimeMusic} from "../../../hooks/useTimeMusic";
 
 SongCardSmall.propTypes = {};
 
@@ -9,6 +10,10 @@ type CardType = PropsWithChildren<{
 }>;
 
 function SongCardSmall({ item, name }: CardType) {
+  const [duration, setDuration] = useState('00:00');
+
+  const time = useTimeMusic(Number(duration));
+
   const names = () => {
     const x = item.singers.map((i) => {
       return i.name;
@@ -16,6 +21,15 @@ function SongCardSmall({ item, name }: CardType) {
 
     return String(x);
   };
+
+  const handleDuration = (meta: any) => {
+    // return meta.target;
+    console.log(meta.target.duration, '/duration')
+
+    setDuration(meta.target.duration)
+  }
+
+  
 
   return (
     <div className="song__row">
@@ -34,7 +48,8 @@ function SongCardSmall({ item, name }: CardType) {
       </div>
 
       <div className="song__row-right col-25">
-        <p className="float-end">03:01</p>
+        <audio id="audioTime" src={item.play_url} onLoadedData={handleDuration} />
+        <p className="float-end">{time}</p>
       </div>
     </div>
   );
