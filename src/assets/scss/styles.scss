@@ -84,6 +84,12 @@
   }
 
   .aside__body {
+
+    .active-aside {
+      border-left: 5px solid $border-color;
+      // background-color: $hover-color;
+    }
+    
     ul {
       list-style: none;
       padding-top: 10px;
@@ -102,22 +108,29 @@
         @media #{$tablet} {
           padding: 12px 15px;
         }
+
+        a {
+          width: 100%;
+          color: $text-sidebar-color;
+          text-decoration: unset;
+          font-weight: 400;
+          
+          @media #{$phone} {
+            display: none;
+          }
+          @media #{$tablet} {
+            display: none;
+          }
+        }
+
+        p {
+          display: inline;
+          font-size: 0.9em;
+        }
       }
       li:hover {
         border-left: 5px solid $border-color;
         background-color: $hover-color;
-      }
-      a {
-        color: $text-sidebar-color;
-        text-decoration: unset;
-        font-weight: 400;
-        font-size: 0.8em;
-        @media #{$phone} {
-          display: none;
-        }
-        @media #{$tablet} {
-          display: none;
-        }
       }
 
       i {

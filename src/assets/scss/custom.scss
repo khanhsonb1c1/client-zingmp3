@@ -56,3 +56,36 @@
 .rolate {
   animation: rolate360 10s linear infinite;
 }
+
+.scale:hover {
+  transition: 1s;
+  transform: scale(1.2);
+  border-radius: 8px;
+  // background-color: $hover-color;
+}
+
+.bg {
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-title-color;
+  i {
+    display: none;
+    font-size: 3em;
+    cursor: pointer;
+  }
+}
+
+.bg:hover {
+  background-color: rgba(44, 27, 59, 0.737254902);
+  color: $text-title-color;
+  i {
+    display: block;
+  }
+}

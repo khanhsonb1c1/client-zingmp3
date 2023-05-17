@@ -1,4 +1,3 @@
-import { Fragment } from "react"; // Thẻ này là thẻ chưá, nó k sinh ra thẻ trong DOM
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Container from "./components/layout/Container";
 import { publicRoutes } from "./router";
@@ -13,21 +12,20 @@ function App() {
             const Page = route.component;
 
             //logic check layout component of page
-            const Layout =
-              route.layout === null
-                ? Fragment
-                : route.layout
-                ? route.layout
-                : Container;
-
+            // const Layout = Container;
+            //   // route.layout === null
+            //   //   ? Fragment
+            //   //   : route.layout
+            //   //   ? route.layout
+            //   //   : Container;
             return (
               <Route
                 key={index}
                 path={route.path}
                 element={
-                  <Layout>
+                  <Container>
                     <Page />
-                  </Layout>
+                  </Container>
                 }
               />
             );

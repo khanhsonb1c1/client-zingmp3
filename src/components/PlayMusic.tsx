@@ -1,7 +1,6 @@
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import TimeSlider from "react-input-slider";
 import { useSelector } from "react-redux";
-import styles from "../assets/scss/custom.scss";
 
 type typePlayMusic = PropsWithChildren<{
   played: {
@@ -142,7 +141,7 @@ function PlayMusic() {
     }
   }
 
-  const handleFoward = () => {
+  const handleRepeat = () => {
     setIsFoward(!isFoward)
   }
 
@@ -180,7 +179,7 @@ function PlayMusic() {
             </div>
             <div className="play-center">
               <div className="button-group">
-                <div className="btn-func" onClick={handleFoward}>
+                <div className="btn-func" onClick={handleRepeat}>
                   <i className={isFoward ? "lni lni-spinner-arrow active" : "lni lni-spinner-arrow"}></i>
                 </div>
                 <div className="btn-func" onClick={handlePrevMusic}>

@@ -5,6 +5,8 @@ import _Album from "../../types/_Album";
 import TextTime from "../input/TextTime";
 import SongCardSmall from "./card/SongCardSmall";
 import { updatePlayMusic } from "../../store/playMusic";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 
 function ContainerDetail({ album }: { album: _Album }) {
@@ -13,9 +15,15 @@ function ContainerDetail({ album }: { album: _Album }) {
 
   const { info, playlist } = usePlayAlbum({ item: album });
 
-  const handleRandom = () => {
+  const handlePlay = () => {
     dispath(updatePlayMusic({info, playlist}))
   }
+
+  const {pathname} = useLocation()
+
+    useEffect(()=> {
+        console.log(pathname)
+    },[])
 
   return (
     <div>
@@ -23,7 +31,10 @@ function ContainerDetail({ album }: { album: _Album }) {
         <div className="detail-page">
           <div className="detail-page__infomation">
             <div className="detail-page__infomation__img">
-              <img
+              <div className="bg">
+                <i className="lni lni-play" onClick={handlePlay}></i>
+              </div>
+              <img className="scale"
                 src={album.image_url}
                 alt=""
               />
@@ -38,7 +49,7 @@ function ContainerDetail({ album }: { album: _Album }) {
             <div className="detail-page__infomation__text">
               {album.likes || 0} like
             </div>
-            <div className="detail-page__infomation__button" onClick={handleRandom}>
+            <div className="detail-page__infomation__button" onClick={handlePlay}>
               <i className="lni lni-play"></i>
               Phát ngẫu nhiên
             </div>
