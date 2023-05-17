@@ -1,6 +1,8 @@
+import AlbumPage from "../views/Album";
 import CustomerPage from "../views/Customer/Index";
 import HomePage from "../views/Home";
 import test from "../views/Home/test";
+import SingerPage from "../views/Singer";
 
 const publicRoutes = [
   {
@@ -9,8 +11,16 @@ const publicRoutes = [
   },
 
   {
-    path: "/album",
-    component: test,
+    path: "/album/:id",
+    component: AlbumPage,
+    
+  },
+  {
+    path: "/singer",
+    component: SingerPage,
+  },
+  {
+    path: "/singer/:id",
   },
 ];
 

@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "./router";
-import Container from "./components/layout/Container";
-import type RouterType from "./types/_router";
 import { Fragment } from "react"; // Thẻ này là thẻ chưá, nó k sinh ra thẻ trong DOM
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Container from "./components/layout/Container";
+import { publicRoutes } from "./router";
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
       <div className="App">
         <Routes>
           {/* this will render list route in router > index.ts */}
-          {publicRoutes.map((route: any, index) => {
+          {publicRoutes.map((route:any, index) => {
             const Page = route.component;
 
             //logic check layout component of page

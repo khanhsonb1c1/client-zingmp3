@@ -1,22 +1,42 @@
-import type { PropsWithChildren } from "react";
-
-type CardType = PropsWithChildren<{}>;
+import { useDispatch } from "react-redux";
+import usePlayAlbum from "../../../hooks/usePlayAlbum";
+import _Album from "../../../types/_Album";
+import { updatePlayMusic } from "../../../store/playMusic";
+import { Link } from "react-router-dom";
 
 AlbumCardDefault.propTypes = {};
 
-function AlbumCardDefault({ item }: { item: any }) {
+function AlbumCardDefault({ item }: { item: _Album }) {
+  const { info, playlist } = usePlayAlbum({ item });
+  const dispath = useDispatch();
+
+  const handlePlayAlbum = () => {
+    dispath(updatePlayMusic({ info, playlist }));
+  };
+
   return (
     <div className="album-list__item">
-      <img src={item.img} alt="" />
-      {item.title && (
-        <div className="album-list__item-name line-2">{item.title}</div>
+      <div className="album-list__item-img" onClick={handlePlayAlbum}>
+        <div className="album-list__item-img-bg"></div>
+        <img src={item.image_url} alt="" className="ratio" />
+        <div className="album__play-icon">
+          <i className="lni lni-play"></i>
+        </div>
+      </div>
+
+      {item.name && (
+        <Link to={`/album/${item.id}`}>
+          <div className="album-list__item-name line-2 cursor-pointer">{item.name}</div>
+        </Link>
       )}
-      {item.singer && (
-        <div className="album-list__item-singer line-2">{item.singer}</div>
+      {item.singers_name && (
+        <div className="album-list__item-singer line-2">
+          {item.singers_name}
+        </div>
       )}
-      {item.desciption && (
+      {item.updated_at && (
         <div className="album-list__item-desciption line-2">
-          {item.desciption}
+          {item.updated_at}
         </div>
       )}
     </div>

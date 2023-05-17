@@ -1,34 +1,48 @@
 import type { PropsWithChildren } from "react";
 import { useDispatch } from "react-redux";
 import { updatePlayMusic } from "../../../store/playMusic";
-import MusicPlay from "../../../types/MusicPlay";
+import Singer from "../../../types/Singer";
+import TextTime from "../../input/TextTime";
+import usePlayMusic from "../../../hooks/usePlayMusic";
 
 SongCard.propTypes = {};
 
 type CardType = PropsWithChildren<{
-  title: string;
-  img: string;
-  singer: string;
-  play: Array<MusicPlay>;
-  updated_at: string;
+  id: string;
+  _id: string;
+  name: string;
+  play_url: string;
+  image_url: string;
+  ranker: number;
+  singers: Array<Singer>;
+  updated_at: number;
 }>;
 
 function SongCard({ item }: { item: CardType }) {
   const dispath = useDispatch();
 
+  const { info , playlist } = usePlayMusic({item})
+
   const handleClick = () => {
-    dispath(updatePlayMusic(item));
+    dispath(updatePlayMusic({info, playlist}));
   };
+
+  const convertNameSingers = () => {
+    return String(item.singers.map((item) => item.name))
+  }
+
 
   return (
     <div className="song-list__item" onClick={handleClick}>
-      <img src={item.img} alt="" />
+      <img src={item.image_url} alt="" />
       <div className="song-list__item__content">
-        <div className="song-list__item__content-name line-1">{item.title}</div>
+        <div className="song-list__item__content-name line-1">{item.name}</div>
         <div className="song-list__item__content-singer line-1">
-          {item.singer}
+         {convertNameSingers()}
         </div>
-        <div className="song-list__item__content-date">{item.updated_at}</div>
+        <div className="song-list__item__content-date">
+          <TextTime timestamp={item.updated_at}></TextTime>
+        </div>
       </div>
 
       <div className="song-list__item-btn">

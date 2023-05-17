@@ -9,7 +9,7 @@ function Recently() {
     <div className="home-page__row">
       <ContainerListAlbum title={"Gần đây"}>
         {dataListRecently.map((item) => (
-          <AlbumCardSmall item={item} />
+          <AlbumCardSmall item={item} key={item.id}/>
         ))}
       </ContainerListAlbum>
     </div>

@@ -1,31 +1,41 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { useLayoutEffect } from "react";
+import { fetchTopAlbums } from "../../service/album";
 import Banner from "./Banner";
-import Recently from "./Recently";
-import Trending from "./Trending"
-import TheNewSongs from "./TheNewSongs";
-import Singer from "./Singer";
-import Idol from "./Idol";
-import TopRanker from "./TopRanker";
 import BannerCategory from "./BannerCategory";
 import Footer from "./Footer";
-
-HomePage.propTypes = {};
+import Idol from "./Idol";
+import Recently from "./Recently";
+import Singer from "./Singer";
+import TheNewSongs from "./TheNewSongs";
+import TopRanker from "./TopRanker";
+import Trending from "./Trending";
+import { useDispatch } from "react-redux";
+import { updateList } from "../../store/album";
 
 function HomePage() {
+  const dispath = useDispatch();
+  useLayoutEffect(() => {
+    handleFetchData();
+  }, []);
+
+  const handleFetchData = () => {
+    fetchTopAlbums().then(({ data }) => {
+      console.log(data, "/data");
+      dispath(updateList(data));
+    });
+  };
   return (
     <div>
       <section className="home-page">
-       <Banner/>
-       <Recently/>
-       <Trending/>
-       <TheNewSongs/>
-       <Singer/>
-       <BannerCategory/>
-       <Idol/>
-       <TopRanker/>
-       <Footer/>
-       
+        <Banner />
+        <Recently />
+        <Trending />
+        <TheNewSongs />
+        <Singer />
+        <BannerCategory />
+        <Idol />
+        <TopRanker />
+        <Footer />
       </section>
     </div>
   );

@@ -2,8 +2,6 @@ import PlayMusic from "../PlayMusic";
 import TheHeader from "./header/Index";
 import TheSidebar from "./sidebar/Index";
 
-Container.propTypes = {};
-
 function Container({ children }: any) {
   return (
     <div>
