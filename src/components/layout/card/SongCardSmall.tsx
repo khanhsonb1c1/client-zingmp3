@@ -1,6 +1,9 @@
 import { PropsWithChildren, useState } from "react";
 import Music from "../../../types/Music";
 import {useTimeMusic} from "../../../hooks/useTimeMusic";
+import { useDispatch } from "react-redux";
+import { updatePlayMusic } from "../../../store/playMusic";
+import usePlayMusic from "../../../hooks/usePlayMusic";
 
 SongCardSmall.propTypes = {};
 
@@ -10,9 +13,13 @@ type CardType = PropsWithChildren<{
 }>;
 
 function SongCardSmall({ item, name }: CardType) {
+  const dispath = useDispatch();
+
   const [duration, setDuration] = useState('00:00');
 
   const time = useTimeMusic(Number(duration));
+
+  const {info, playlist} = usePlayMusic({item})
 
   const names = () => {
     const x = item.singers.map((i) => {
@@ -22,17 +29,19 @@ function SongCardSmall({ item, name }: CardType) {
     return String(x);
   };
 
-  const handleDuration = (meta: any) => {
+  const getDuration = (meta: any) => {
     // return meta.target;
     console.log(meta.target.duration, '/duration')
 
     setDuration(meta.target.duration)
   }
 
-  
+  const handlePlayMusic = () => {
+    dispath(updatePlayMusic({info, playlist}))
+  }
 
   return (
-    <div className="song__row">
+    <div className="song__row" onClick={handlePlayMusic}>
       <div className="song__row-left col-5">
         <i className="lni lni-music"></i>
         <div className="song-content">
@@ -48,7 +57,7 @@ function SongCardSmall({ item, name }: CardType) {
       </div>
 
       <div className="song__row-right col-25">
-        <audio id="audioTime" src={item.play_url} onLoadedData={handleDuration} />
+        <audio id="audioTime" src={item.play_url} onLoadedData={getDuration} />
         <p className="float-end">{time}</p>
       </div>
     </div>

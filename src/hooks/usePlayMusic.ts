@@ -1,24 +1,23 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import Singer from "../types/Singer";
+import Music from "../types/Music";
 
-type MusicType = PropsWithChildren<{
-  id: string;
-  _id: string;
-  name: string;
-  play_url: string;
-  image_url: string;
-  ranker: number;
-  updated_at: number;
-  singers: Array<Singer>;
-}>;
+// type MusicType = PropsWithChildren<{
+//   id: string;
+//   name: string;
+//   play_url: string;
+//   image_url: string;
+//   ranker: number;
+//   updated_at: number;
+//   singers: Array<Singer>;
+// }>;
 
-export default function usePlayMusic({ item }: { item: MusicType }) {
+export default function usePlayMusic({ item }: { item: Music }) {
   const [playlist, setPlayList] = useState(Array<string>);
   const [info, setInfo] = useState({});
 
   useEffect(() => {
-    const list = [item.play_url]
-    setPlayList(list);
+    setPlayList([item.play_url]);
 
     const info = {
       name: item.name,

@@ -15,6 +15,7 @@
     "@reduxjs/toolkit": "^1.9.3",
     "axios": "^0.27.2",
     "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
     "node-sass": "^8.0.0",
     "notistack": "^2.0.8",
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
     "styled-components": "^5.3.8"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.194",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-slick": "^0.23.10",

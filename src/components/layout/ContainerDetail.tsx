@@ -1,9 +1,22 @@
+import { useDispatch } from "react-redux";
 import { DESCRIPTION } from "../../constants";
+import usePlayAlbum from "../../hooks/usePlayAlbum";
 import _Album from "../../types/_Album";
 import TextTime from "../input/TextTime";
 import SongCardSmall from "./card/SongCardSmall";
+import { updatePlayMusic } from "../../store/playMusic";
+
 
 function ContainerDetail({ album }: { album: _Album }) {
+
+  const dispath = useDispatch();
+
+  const { info, playlist } = usePlayAlbum({ item: album });
+
+  const handleRandom = () => {
+    dispath(updatePlayMusic({info, playlist}))
+  }
+
   return (
     <div>
       {album && (
@@ -25,7 +38,7 @@ function ContainerDetail({ album }: { album: _Album }) {
             <div className="detail-page__infomation__text">
               {album.likes || 0} like
             </div>
-            <div className="detail-page__infomation__button">
+            <div className="detail-page__infomation__button" onClick={handleRandom}>
               <i className="lni lni-play"></i>
               Phát ngẫu nhiên
             </div>

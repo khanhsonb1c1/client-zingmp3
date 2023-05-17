@@ -739,7 +739,6 @@
 
 .img_running {
   border-radius: 50% !important;
-  animation: rolate360 10s linear infinite;
 }
 
 @keyframes rolate360 {
@@ -859,4 +858,8 @@
       color: $border-color;
     }
   }
+
+
 }
+
+
