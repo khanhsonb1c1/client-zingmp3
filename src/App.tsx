@@ -8,7 +8,7 @@ function App() {
       <div className="App">
         <Routes>
           {/* this will render list route in router > index.ts */}
-          {publicRoutes.map((route:any, index) => {
+          {publicRoutes.map((route:any) => {
             const Page = route.component;
 
             //logic check layout component of page
@@ -20,7 +20,7 @@ function App() {
             //   //   : Container;
             return (
               <Route
-                key={index}
+                key={route.name}
                 path={route.path}
                 element={
                   <Container>

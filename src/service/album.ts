@@ -7,4 +7,8 @@ function fetchTopAlbums() {
   return musicAPI.post("/api/albums/get-top-albums");
 }
 
-export { album, fetchTopAlbums };
+function fetchAlbum(params?: object) {
+  return musicAPI.post("/api/albums", params);
+}
+
+export { album, fetchTopAlbums, fetchAlbum };
