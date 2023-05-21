@@ -15,7 +15,6 @@ function TopRanker() {
   );
 
   useEffect(() => {
-    console.log("this is list: ", top);
     if (top) {
       setList(top.top100);
     }

@@ -3,6 +3,7 @@ import playMusicReducer from "./playMusic";
 import musicReducer from "./music";
 import albumReducer from "./album";
 import singerReducer from "./singer";
+import albumTop100Reducer from "./album_top100"
 
 
 const rootReducer = {
@@ -10,6 +11,7 @@ const rootReducer = {
   music: musicReducer,
   album: albumReducer,
   singer: singerReducer,
+  album_top100: albumTop100Reducer,
 };
 
 const store = configureStore({
