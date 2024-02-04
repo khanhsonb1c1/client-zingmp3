@@ -8,7 +8,7 @@ function Recently() {
   return (
     <div className="home-page__row">
       <ContainerListAlbum title={"Gần đây"}>
-        {dataListRecently.map((item) => (
+        {dataListRecently.map((item: any) => (
           <AlbumCardSmall item={item} key={item.id}/>
         ))}
       </ContainerListAlbum>

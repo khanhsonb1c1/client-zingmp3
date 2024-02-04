@@ -21,7 +21,7 @@ type CardType = PropsWithChildren<{
 function SongCard({ item }: { item: CardType }) {
   const dispath = useDispatch();
 
-  const { info , playlist } = usePlayMusic({item})
+  const { info , playlist } = usePlayMusic({item} as any)
 
   const handleClick = () => {
     dispath(updatePlayMusic({info, playlist}));

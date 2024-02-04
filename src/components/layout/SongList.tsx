@@ -1,16 +1,16 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-// SongList.propTypes = {
+SongList.propTypes = {
     
-// };
+};
 
-// function SongList(songs: ) {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// }
+function SongList( ) {
+    return (
+        <div>
+            hello
+        </div>
+    );
+}
 
-// export default SongList;
+export default SongList;
