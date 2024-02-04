@@ -7,18 +7,18 @@ import usePlayMusic from "../../../hooks/usePlayMusic";
 
 SongCard.propTypes = {};
 
-type CardType = PropsWithChildren<{
-  id: string;
-  _id: string;
-  name: string;
-  play_url: string;
-  image_url: string;
-  ranker: number;
-  singers: Array<Singer>;
-  updated_at: number;
-}>;
+// type CardType = PropsWithChildren<{
+//   id: string;
+//   _id: string;
+//   name: string;
+//   play_url: string;
+//   image_url: string;
+//   ranker: number;
+//   singers: Array<Singer>;
+//   updated_at: number;
+// }>;
 
-function SongCard({ item }: { item: CardType }) {
+function SongCard({ item }: { item: any }) {
   const dispath = useDispatch();
 
   const { info , playlist } = usePlayMusic({item} as any)
@@ -28,7 +28,7 @@ function SongCard({ item }: { item: CardType }) {
   };
 
   const convertNameSingers = () => {
-    return String(item.singers.map((item) => item.name))
+    return String(item.singers.map((item: any) => item.name))
   }
 
 
