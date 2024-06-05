@@ -4,6 +4,8 @@ import AlbumList from "../views/Album/AlbumList";
 import CustomerPage from "../views/Customer/Index";
 import HomePage from "../views/Home";
 import test from "../views/Home/test";
+import LoginPage from "../views/Login";
+import RegisterPage from "../views/Register";
 import SingerPage from "../views/Singer";
 import TopAlbum from "../views/TopAlbum";
 
@@ -17,7 +19,6 @@ const publicRoutes = [
     name: "album_detail",
     path: "/album/:id",
     component: AlbumPage,
-    
   },
   // {
   //   path: "/singer",
@@ -43,6 +44,16 @@ const privateRoutes = [
   {
     path: "/customer",
     component: CustomerPage
+  },
+  {
+    name: "login",
+    path: "/login",
+    component: LoginPage,
+  },
+  {
+    name: "register",
+    path: "/register",
+    component: RegisterPage,
   },
 ];
 

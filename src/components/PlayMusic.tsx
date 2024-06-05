@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import TimeSlider from "react-input-slider";
 import { useSelector } from "react-redux";
+import useFavoriteMusic from "../hooks/useFavorite";
 
 type typePlayMusic = PropsWithChildren<{
   played: {
@@ -19,6 +20,13 @@ function PlayMusic() {
   const [isFoward, setIsFoward] = useState(false);
   // const [listened, setListened] = useState([] as Array<Number>);
   // const listend:any= useRef([]); // danh sách đã nghe, tránh random trúng mấy bài đã nghe
+
+
+  const { addFavorite, loading, error } = useFavoriteMusic();
+
+  const userInfoStore = useSelector((state: any) => state.user.user);
+
+
   const [currTime, setCurrTime] = useState({
     min: "00",
     sec: "00",
@@ -43,6 +51,9 @@ function PlayMusic() {
       audioRef.current.play();
       setPlay(true);
     }
+
+    console.log(play_list, "play list info");
+    console.log(album_info, "play list album_info");
   }, [play_list]);
 
   // get time user listened this music
@@ -154,6 +165,13 @@ function PlayMusic() {
     }
   };
 
+  const handleClickFavorite = () => {
+    const userId = userInfoStore._id;
+    const email = userInfoStore.email;
+    const musicId = album_info.id;
+    addFavorite(email, userId, musicId)
+  }
+
   return (
     <div>
       {play_list.length && (
@@ -263,7 +281,7 @@ function PlayMusic() {
               <div className="btn-fuc">
                 <i className="lni lni-mic"></i>
               </div>
-              <div className="btn-heart">
+              <div className="btn-heart" onClick={handleClickFavorite}>
                 <i className="lni lni-heart"></i>
               </div>
             </div>

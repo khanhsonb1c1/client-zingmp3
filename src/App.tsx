@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Container from "./components/layout/Container";
-import { publicRoutes } from "./router";
+import ContainerManager from "./components/layout/ContainerManager";
+import { publicRoutes, privateRoutes } from "./router";
 
 function App() {
   return (
@@ -30,10 +31,14 @@ function App() {
               />
             );
           })}
-          {/* {privateRoutes.map((route, index) => {
+          {privateRoutes.map((route, index) => {
             const Page = route.component;
-            return <Route key={index} path={route.path} element={<Page />} />;
-          })} */}
+            return <Route key={index} path={route.path} element={
+              <ContainerManager>
+                <Page />
+              </ContainerManager>
+            } />;
+          })}
           {/* <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductPage />} /> */}
         </Routes>

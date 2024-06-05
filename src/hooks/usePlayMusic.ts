@@ -23,6 +23,7 @@ export default function usePlayMusic({ item }: { item: Music }) {
       name: item.name,
       image_url: item.image_url,
       updated_at: item.updated_at,
+      id: item._id,
     };
 
     const singers = String(item.singers.map((x) => x.name)).replace(

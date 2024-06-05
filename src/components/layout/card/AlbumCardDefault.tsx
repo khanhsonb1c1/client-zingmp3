@@ -3,6 +3,7 @@ import usePlayAlbum from "../../../hooks/usePlayAlbum";
 import _Album from "../../../types/_Album";
 import { updatePlayMusic } from "../../../store/playMusic";
 import { Link } from "react-router-dom";
+import TextTime from "../../input/TextTime";
 
 AlbumCardDefault.propTypes = {};
 
@@ -26,7 +27,9 @@ function AlbumCardDefault({ item }: { item: _Album }) {
 
       {item.name && (
         <Link to={`/album/${item.id}`}>
-          <div className="album-list__item-name line-2 cursor-pointer">{item.name}</div>
+          <div className="album-list__item-name line-2 cursor-pointer">
+            {item.name}
+          </div>
         </Link>
       )}
       {item.singers_name && (
@@ -36,7 +39,7 @@ function AlbumCardDefault({ item }: { item: _Album }) {
       )}
       {item.updated_at && (
         <div className="album-list__item-desciption line-2">
-          {item.updated_at}
+          <TextTime timestamp={item.updated_at}></TextTime>
         </div>
       )}
     </div>

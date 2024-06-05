@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { updateUser } from "../../../store/user";
 
 function TheHeader() {
+  const [user, setUser] = useState({}) as any;
+  const dispatch = useDispatch();
+  
+  const userInfoStore = useSelector((state: any) => state.user.user);
+  const navigate = useNavigate()
+  useEffect(() => {
+    const userInfo = localStorage.getItem("user");
+    if (userInfo) {
+      dispatch(updateUser(JSON.parse(userInfo)));
+    }
+  }, []);
+
+  useEffect(() => {
+    setUser(userInfoStore);
+  }, [userInfoStore]);
+
+  const logOut = () => {
+    localStorage.setItem("user", "");
+    dispatch(updateUser({}));
+    navigate('/login');
+  };
+
   return (
     <header className="header">
-      
       <div className="header__left">
         <i className="lni lni-arrow-left"></i>
         <i className="lni lni-arrow-right"></i>
@@ -28,9 +52,27 @@ function TheHeader() {
         <div className="header__right-setting">
           <i className="lni lni-cog"></i>
         </div>
-        <div className="header__right-avata">
-          <i className="lni lni-user"></i>
-        </div>
+
+        {!user.email && (
+          <Link to={"/login"}>
+            <div className="header__right-avata">
+              <i className="lni lni-user"></i>
+            </div>
+          </Link>
+        )}
+
+        {user.email && (
+          <Link to={"/private"}>
+            <div className="header__right-avata violet">
+              <i className="lni lni-user"></i>
+            </div>
+          </Link>
+        )}
+        {user.email && (
+          <div className="header__right-avata" onClick={logOut}>
+            <i className="lni lni-exit"></i>
+          </div>
+        )}
       </div>
     </header>
   );

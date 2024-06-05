@@ -4,6 +4,7 @@ import musicReducer from "./music";
 import albumReducer from "./album";
 import singerReducer from "./singer";
 import albumTop100Reducer from "./album_top100"
+import userReducer from "./user"
 
 
 const rootReducer = {
@@ -12,6 +13,7 @@ const rootReducer = {
   album: albumReducer,
   singer: singerReducer,
   album_top100: albumTop100Reducer,
+  user: userReducer,
 };
 
 const store = configureStore({
