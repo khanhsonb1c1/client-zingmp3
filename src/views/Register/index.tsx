@@ -13,10 +13,10 @@ function RegisterPage() {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:5005/api/users', {
+      await axios.post('http://localhost:5005/api/users', {
         email,
         password,
-        fullName,
+        full_name: fullName,
       });
       setSuccess('Đăng ký thành công!');
       setError('');
