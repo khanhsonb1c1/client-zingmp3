@@ -937,3 +937,23 @@
     }
   }
 }
+
+
+
+.favorite {
+  color: $text-color;
+
+  h3 {
+    margin: 3em;
+    color: white;
+  }
+}
+
+
+.search {
+  h3 {
+    color: white;
+    margin-bottom: 2em;
+  }
+  margin-top: 3em;
+}

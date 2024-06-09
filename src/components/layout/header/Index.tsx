@@ -5,6 +5,8 @@ import { updateUser } from "../../../store/user";
 
 function TheHeader() {
   const [user, setUser] = useState({}) as any;
+  const [search, setSearch] = useState("");
+
   const dispatch = useDispatch();
   
   const userInfoStore = useSelector((state: any) => state.user.user);
@@ -26,6 +28,13 @@ function TheHeader() {
     navigate('/login');
   };
 
+  const handleSearch = (event: any) => {
+    if (event.key === 'Enter') {
+      navigate(`/search?search=${search}`)
+    }
+   
+  }
+
   return (
     <header className="header">
       <div className="header__left">
@@ -38,6 +47,8 @@ function TheHeader() {
           <input
             type="text"
             placeholder="Tìm kiếm tên bài hát, nghệ sĩ, lời bài hát,..."
+            onChange={(event) => setSearch(event.target.value)}
+            onKeyDown={handleSearch}
           />
         </div>
       </div>
@@ -62,7 +73,7 @@ function TheHeader() {
         )}
 
         {user.email && (
-          <Link to={"/private"}>
+          <Link to={"/favorite"}>
             <div className="header__right-avata violet">
               <i className="lni lni-user"></i>
             </div>

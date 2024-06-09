@@ -2,10 +2,12 @@ import { ALBUMS, TOPALBUMS } from "../constants";
 import AlbumPage from "../views/Album";
 import AlbumList from "../views/Album/AlbumList";
 import CustomerPage from "../views/Customer/Index";
+import FavoritePage from "../views/Favorite";
 import HomePage from "../views/Home";
 import test from "../views/Home/test";
 import LoginPage from "../views/Login";
 import RegisterPage from "../views/Register";
+import SearchPage from "../views/Search";
 import SingerPage from "../views/Singer";
 import TopAlbum from "../views/TopAlbum";
 
@@ -37,6 +39,16 @@ const publicRoutes = [
     path: `/${ALBUMS}`,
     component: AlbumList,
     name: "album_list"
+  },
+  {
+    path: `/favorite`,
+    component: FavoritePage,
+    name: "favorite"
+  },
+  {
+    path: `/search`,
+    component: SearchPage,
+    name: "search"
   },
 ];
 

@@ -52,8 +52,6 @@ function PlayMusic() {
       setPlay(true);
     }
 
-    console.log(play_list, "play list info");
-    console.log(album_info, "play list album_info");
   }, [play_list]);
 
   // get time user listened this music
@@ -166,6 +164,8 @@ function PlayMusic() {
   };
 
   const handleClickFavorite = () => {
+     console.log("handleClickFavorite....", userInfoStore._id, album_info);
+
     const userId = userInfoStore._id;
     const email = userInfoStore.email;
     const musicId = album_info.id;
